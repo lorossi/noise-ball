@@ -6,7 +6,7 @@ class Sketch extends Engine {
     this._time_scl = 1;
     this._background_color = "rgb(240, 240, 240)";
     this._border_color = "rgb(15, 15, 15)";
-    this._palette = ["#006980", "#009f9f", "#20b7b0", "#20b7b0", "#f3af35", "#ed6e34", "#e83236"];
+    this._palette = ["#006980", "#009f9f", "#20b7b0", "#f3af35", "#ed6e34", "#e83236"];
     this._line_width = 8;
 
     this._recording = false;
