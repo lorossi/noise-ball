@@ -1,12 +1,12 @@
 class Sketch extends Engine {
   preload() {
-    this._radius = this.height / 4;
-    this._scl = 1;
+    this._radius = this.height / 4; // ball radius
+    this._scl = 1; // colored square size
     this._noise_scl = 0.0015 * this._scl;
     this._time_scl = 1;
     this._background_color = "rgb(240, 240, 240)";
     this._border_color = "rgb(15, 15, 15)";
-    this._palette = ["#006980", "#009f9f", "#20b7b0", "#f3af35", "#ed6e34", "#e83236"];
+    this._palette = ["#006980", "#009f9f", "#20b7b0", "#f3af35", "#ed6e34", "#e83236"]; // colors that will fill the center of the ball
     this._line_width = 8;
 
     this._recording = false;
@@ -19,12 +19,10 @@ class Sketch extends Engine {
     if (this._recording) {
       this._capturer = new CCapture({ format: "png" });
       this._capturer_started = false;
-      this._random_saves = 5;
     }
-
     // setup noise
     this._simplex = new SimplexNoise(new Date().getTime());
-
+    // pre calculate square radius (not that makes one heck of a difference, it's still slow as heck)
     this._radius_sq = Math.pow(this._radius, 2);
   }
 
@@ -51,9 +49,13 @@ class Sketch extends Engine {
     this.ctx.save();
     this.ctx.translate(this.width / 2, this.height / 2);
 
+    // iterate through each square and calculate a noise value
+    // it is then mapped to a color from the palette
     for (let x = -this._radius; x < this._radius; x += this._scl) {
       for (let y = -this._radius; y < this._radius; y += this._scl) {
+        // skip squares outside the circle
         if (distSq(0, 0, x, y) < this._radius_sq) {
+          // compute noise and get color from the palette
           const n = this._noise(x * this._noise_scl, y * this._noise_scl, time_x, time_y);
           const index = Math.floor(n * this._palette.length);
           const fill_c = this._palette[index];
@@ -67,6 +69,7 @@ class Sketch extends Engine {
       }
     }
 
+    // draw the outer circle
     this.ctx.strokeStyle = this._border_color;
     this.ctx.lineWidth = this._line_width;
     this.ctx.beginPath();
@@ -90,6 +93,7 @@ class Sketch extends Engine {
     }
   }
 
+  // easier way to generate a random noise
   _noise(x, y, z = 0, w = 0) {
     return (1 + this._simplex.noise4D(x, y, z, w)) / 2;
   }
@@ -98,20 +102,4 @@ class Sketch extends Engine {
 
 const distSq = (x1, y1, x2, y2) => {
   return Math.pow(x1 - x2, 2) + Math.pow(y1 - y2, 2);
-};
-
-const dist = (x1, y1, x2, y2) => {
-  return Math.sqrt(distSq(x1, y1, x2, y2));
-};
-
-const random = (a, b) => {
-  if (a == undefined && b == undefined) return random(0, 1);
-  else if (b == undefined) return random(0, a);
-  else if (a != undefined && b != undefined) return Math.random() * (b - a) + a;
-};
-
-const random_int = (a, b) => {
-  if (a == undefined && b == undefined) return random_int(0, 1);
-  else if (b == undefined) return random_int(0, a);
-  else if (a != undefined && b != undefined) return Math.floor(Math.random() * (b - a + 1)) + a;
 };
