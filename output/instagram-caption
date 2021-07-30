@@ -3,12 +3,13 @@ GitHub repo: https://github.com/lorossi/noise-ball⠀
 How does this work?⠀
 ⠀
 A circle is drawn on the center of the screen, and then each pixel inside it is filled with a color from a palette.⠀
-The color is not randomly picked but it is chosen thanks to a special function, called *Simplex noise.* The perks of using this noise and not a completely random value is that each pixel color will vary slowly over time and will be pretty close to the neighbouring rectangle. In my opinion, it makes a really soothing (almost hypnotizing) effect.⠀
+The color is not randomly picked but it is chosen thanks to a special function, called Simplex noise. The perks of using this noise and not a completely random value is that each pixel color will vary slowly over time and will be pretty close to the neighbouring rectangle. In my opinion, it makes a really soothing (almost hypnotizing) effect.⠀
 ⠀
 The video then is looped perfectly as you won't be able to see where it ends and where it starts again. That's due to the noise function being tied not only to the pixel position but also to the elapsed time.⠀
 ⠀
+Re uploaded because the first post was surprisingly low quality.⠀
 ⠀
 ⠀
 ⠀
 ⠀
-#creativecoding #html5canvas #proceduralgeneration #digitalart #genartclub⠀
+#creativecoding #html5canvas #proceduralgeneration #digitalart #genartclub⠀#perfectloop
