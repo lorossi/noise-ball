@@ -1,7 +1,7 @@
 class Sketch extends Engine {
   preload() {
     this._radius = this.height / 4; // ball radius
-    this._scl = 1; // colored square size
+    this._scl = 1; // coloured square size
     this._noise_scl = 0.0015 * this._scl;
     this._time_scl = 1;
     this._background_color = "rgb(240, 240, 240)";
