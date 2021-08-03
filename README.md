@@ -10,7 +10,11 @@ The video then is looped perfectly as you won't be able to see where it ends and
 That being said, the script is really, really, really slow. It took about *3 seconds for each frame* with no chance of multi threading or parallelization.
 This made me realize that sometimes I should prefer speed and lower runtime to ease of use and availability to the final user. There's no point in making a viable webpage if then the I cannot distribute it due to an extreme slowness. I found out a C++ framework called [Openframeworks](https://openframeworks.cc/). I'm surely going to look into it as soon as I can.
 
-That being said, take a look at the rendered video [on my Instagram page](https://www.instagram.com/lorossi97/) or here below in a low quality gif.
+That being said, take a look at the rendered video [on my Instagram page](https://www.instagram.com/p/CSF44FhCw-V/) or here below in a low quality gif.
+It took me **SOOO MUCH** to upload this on Instagram because it kept reducing the quality so much that the video was pixelating really badly. I had to upscale it to 2000x2000 px and set the bitrate to a ridiculous value (50 Mbps!) so that the output size would be about 50MB.
+I then uploaded it again (it was my fifth! try) and finally the quality was good enough.
+
+Wow, Instagram. Thank you.
 
 ## Output
 
